@@ -5,10 +5,16 @@ from profile import Profile
 
 prefix = ',,'
 bot = commands.Bot(command_prefix=prefix)
+smashers = {}
 
 
 @bot.event
 async def on_ready():
+    for member in bot.get_all_members():
+        for role in member.roles:
+            if 'shootas' in role.name:
+                smashers[member] = Profile(member)
+                break
     print('Logged in as {0}'.format(bot.user))
 
 
@@ -27,10 +33,27 @@ async def quit(ctx):
 
 
 @bot.command()
-async def np(ctx):
-    print('Adding new profile...')
-    profile = Profile(ctx.author)
-    await ctx.send(embed=profile)
+async def profile(ctx):
+    prof = smashers.get(ctx.author)
+    await ctx.channel.send(content='', embed=prof)
+
+
+@bot.command()
+async def switch(ctx, *, content: str):
+    prof = smashers.get(ctx.author)
+    prof.setSwitchCode(content)
+
+
+@bot.command()
+async def mains(ctx, *, content: str):
+    prof = smashers.get(ctx.author)
+    prof.setMains(content)
+
+
+@bot.command()
+async def secondaries(ctx, *, content: str):
+    prof = smashers.get(ctx.author)
+    prof.setSecondaries(content)
 
 
 bot.run(constants.BOT_TOKEN)
