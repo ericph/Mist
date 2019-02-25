@@ -19,7 +19,6 @@ class Profile(discord.Embed):
         self.set_field_at(1, name='Switch Code', value=self.switchCode)
 
     def setMains(self, fighters):
-        fighters.replace(',,', '')
         fighters.replace(' ', '')
         names = fighters.lower().split(',')
         if len(names) < 1:
@@ -29,7 +28,6 @@ class Profile(discord.Embed):
         self.set_field_at(2, name='Mains', value=str(self.mains))
 
     def setSecondaries(self, fighters):
-        fighters.replace(',,', '')
         fighters.replace(' ', '')
         names = fighters.lower().split(',')
         if len(names) < 1:
