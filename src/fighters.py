@@ -68,13 +68,14 @@ fighters = {
     66: ['ridley'],
     67: ['simon', 'simonbelmont', 'belmont'],
     68: ['richter', 'richterbelmont'],
-    69: ['kingkrool', 'kingk.rool', 'krool', 'k.rool', 'rool', 'kingk', 'kingk.', 'kkr', 'rool'],
+    69: ['kingkrool', 'kingk.rool', 'krool', 'k.rool', 'rool', 'kingk', 'kingk.', 'kkr', 'rool', 'kkrool'],
     70: ['isabelle', 'belle'],
-    71: ['incineroar'],
+    71: ['incineroar', 'incin'],
     72: ['piranha plant', 'plant', 'piranha'],
-    80: ['miibrawler', 'brawler'],
-    81: ['miiswordfighter', 'swordfighter'],
-    82: ['miigunner', 'gunner']
+    73: ['joker'],
+    78: ['miibrawler', 'brawler'],
+    79: ['miiswordfighter', 'swordfighter'],
+    80: ['miigunner', 'gunner']
 }
 
 fighters_to_ids = {}
