@@ -1,5 +1,5 @@
 import discord
-from fighters import fighters_to_ids
+from fighters import fighters2ids, ids2fighters
 
 
 class Profile(discord.Embed):
@@ -24,8 +24,9 @@ class Profile(discord.Embed):
         if len(names) < 1:
             self.mains = []
         else:
-            self.mains = list(map(lambda x: fighters_to_ids.get(x), names))
-        self.set_field_at(2, name='Mains', value=str(self.mains))
+            self.mains = list(map(lambda x: fighters2ids.get(x), names))
+        names = str(list(map(lambda x: ids2fighters.get(x), self.mains)))
+        self.set_field_at(2, name='Mains', value=names[1:-1])
 
     def setSecondaries(self, fighters):
         fighters.replace(' ', '')
@@ -33,5 +34,6 @@ class Profile(discord.Embed):
         if len(names) < 1:
             self.secondaries = []
         else:
-            self.secondaries = list(map(lambda x: fighters_to_ids.get(x), names))
-        self.set_field_at(3, name='Secondaries', value=str(self.secondaries))
+            self.secondaries = list(map(lambda x: fighters2ids.get(x), names))
+        names = str(list(map(lambda x: ids2fighters.get(x), self.secondaries)))
+        self.set_field_at(3, name='Secondaries', value=names[1:-1])
